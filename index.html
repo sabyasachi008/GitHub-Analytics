@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Analytics</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-dark text-light">
+
+  <!-- Header -->
+  <section class="text-center bg-secondary py-3">
+    <h1 class="fw-bold">GitHub Analytics <i class="bi bi-github"></i></h1>
+  </section>
+
+  <!-- SEARCH SECTION -->
+  <section id="searchSection" class="container mt-4">
+
+    <form class="d-flex">
+      <input id="searchbx" class="form-control me-2" type="search" placeholder="Search users..." autocomplete="off">
+      <button class="btn btn-outline-info" id="searchBtn">Search</button>
+    </form>
+
+    <div id="searchResult" class="mt-4"></div>
+
+  </section>
+
+  <!-- REPOSITORY SECTION -->
+  <section id="repoSection" class="container mt-4" style="display:none;">
+
+    <h3 id="repoTitle" class="text-info"></h3>
+
+    <div class="d-flex align-items-center my-3">
+
+      <!-- Sorting -->
+      <div class="dropdown me-3">
+        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+          Sort <i class="bi bi-sort-down"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item sort-option" data-sort="name" href="#">Name</a></li>
+          <li><a class="dropdown-item sort-option" data-sort="stars" href="#">Stars</a></li>
+          <li><a class="dropdown-item sort-option" data-sort="forks" href="#">Forks</a></li>
+          <li><a class="dropdown-item sort-option" data-sort="issues" href="#">Open Issues</a></li>
+        </ul>
+      </div>
+
+      <!-- Repo search -->
+      <input id="repoSearch" type="text" class="form-control" placeholder="Search repos..." style="max-width:200px;" autocomplete="off">
+    </div>
+
+    <div id="repoResult"></div>
+    <button class="btn btn-warning mt-3" id="backBtn">Back to Search</button>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

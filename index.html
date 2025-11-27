@@ -1,64 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitHub Analytics</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body class="bg-dark text-light">
+  <body>
+    <main>
+      <section>
+        <div class="container-1 bg-dark text-light text-center pb-3 pt-3">
+          <h1 class="fw-bold">Github Analytics <i class="bi bi-github"></i></h1>
+        </div>
+      </section>
 
-  <!-- Header -->
-  <section class="text-center bg-secondary py-3">
-    <h1 class="fw-bold">GitHub Analytics <i class="bi bi-github"></i></h1>
-  </section>
+      <!--Search Section-->
+      <section id="searchSection" class="container mt-4">
+        
+          <form
+            class="d-flex"
+            onsubmit="event.preventDefault(); searchUser(document.getElementById('searchbx').value)"
+          >
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="searchbx"
+              autocomplete="off"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+         <div class="container text-light mt-4" id="result"></div>
+      </section>
 
-  <!-- SEARCH SECTION -->
-  <section id="searchSection" class="container mt-4">
+      <!--Result Section-->
 
-    <form class="d-flex">
-      <input id="searchbx" class="form-control me-2" type="search" placeholder="Search users..." autocomplete="off">
-      <button class="btn btn-outline-info" id="searchBtn">Search</button>
-    </form>
+      <!--Repository Section-->
+      <section id="repoSection" class="container mt-4" style="display: none">
+        <h3 id="repoTitle" class="text-info"></h3>
 
-    <div id="searchResult" class="mt-4"></div>
+        <div class="d-flex align-items-center my-3">
+          <div class="dropdown me-3">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              data-bs-toggle="dropdown"
+            >
+              Sort <i class="bi bi-sort-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item sort-option" data-sort="name">Name</a>
+              </li>
+              <li>
+                <a class="dropdown-item sort-option" data-sort="stars">Stars</a>
+              </li>
+              <li>
+                <a class="dropdown-item sort-option" data-sort="forks">Forks</a>
+              </li>
+              <li>
+                <a class="dropdown-item sort-option" data-sort="issues"
+                  >Open Issues</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!--Repo Search-->
+          <input
+            id="repoSearch"
+            type="text"
+            class="form-control"
+            placeholder="Search repos..."
+            style="max-width: 200px"
+            autocomplete="off"
+          />
+        </div>
 
-  </section>
-
-  <!-- REPOSITORY SECTION -->
-  <section id="repoSection" class="container mt-4" style="display:none;">
-
-    <h3 id="repoTitle" class="text-info"></h3>
-
-    <div class="d-flex align-items-center my-3">
-
-      <!-- Sorting -->
-      <div class="dropdown me-3">
-        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
-          Sort <i class="bi bi-sort-down"></i>
+        <div id="repoResult"></div>
+        <button class="btn btn-warning mt-3" id="backBtn">
+          Back to Search
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item sort-option" data-sort="name" href="#">Name</a></li>
-          <li><a class="dropdown-item sort-option" data-sort="stars" href="#">Stars</a></li>
-          <li><a class="dropdown-item sort-option" data-sort="forks" href="#">Forks</a></li>
-          <li><a class="dropdown-item sort-option" data-sort="issues" href="#">Open Issues</a></li>
-        </ul>
-      </div>
+      </section>
+    </main>
 
-      <!-- Repo search -->
-      <input id="repoSearch" type="text" class="form-control" placeholder="Search repos..." style="max-width:200px;" autocomplete="off">
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <div id="repoResult"></div>
-    <button class="btn btn-warning mt-3" id="backBtn">Back to Search</button>
-
-  </section>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
-
-</body>
+    <script src="githubapp2.js"></script>
+  </body>
 </html>
